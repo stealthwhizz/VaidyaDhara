@@ -174,6 +174,7 @@ export const translations = {
     'rewards.share.knowledge': 'स्वास्थ्य ज्ञान साझा करें',
     'rewards.share.knowledge.desc': 'परिवार या दोस्तों के साथ सुझाव साझा करें',
     'rewards.pending': 'लंबित',
+    'rewards.completed': 'पूर्ण',
     'rewards.points': 'अंक',
     'rewards.max.level': 'अधिकतम स्तर!',
     

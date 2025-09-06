@@ -138,8 +138,8 @@ function RewardsPage() {
     },
     {
       id: 4,
-      title: "Share Health Knowledge",
-      description: "Share a tip with family or friends",
+      title: t('rewards.share.knowledge', "Share Health Knowledge"),
+      description: t('rewards.share.knowledge.desc', "Share a tip with family or friends"),
       icon: Users,
       points: 20,
       completed: false,
@@ -307,15 +307,15 @@ function RewardsPage() {
                       <p className="text-sm text-slate-600 mt-1">{task.description}</p>
                       <div className="flex items-center justify-between mt-3">
                         <span className="text-sm font-medium text-blue-600">
-                          +{task.points} points
+                          +{task.points} {t('rewards.points', 'points')}
                         </span>
                         {task.completed ? (
                           <span className="text-sm font-medium text-green-600 flex items-center gap-1">
                             <Star className="w-4 h-4 fill-current" />
-                            Completed
+                            {t('rewards.completed', 'Completed')}
                           </span>
                         ) : (
-                          <span className="text-sm text-slate-500">Pending</span>
+                          <span className="text-sm text-slate-500">{t('rewards.pending', 'Pending')}</span>
                         )}
                       </div>
                     </div>

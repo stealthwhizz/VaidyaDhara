@@ -26,14 +26,14 @@ function HealthTipsPage() {
   const { addPoints, unlockBadge } = useUserStore();
 
   const categories = [
-    { id: 'all', name: 'All Tips', icon: BookOpen, color: 'text-slate-600' },
-    { id: 'nutrition', name: 'Nutrition', icon: Apple, color: 'text-green-600' },
-    { id: 'exercise', name: 'Exercise', icon: Dumbbell, color: 'text-blue-600' },
-    { id: 'hydration', name: 'Hydration', icon: Droplets, color: 'text-cyan-600' },
-    { id: 'sleep', name: 'Sleep', icon: Moon, color: 'text-purple-600' },
-    { id: 'mental-health', name: 'Mental Health', icon: Heart, color: 'text-pink-600' },
-    { id: 'prevention', name: 'Prevention', icon: Shield, color: 'text-orange-600' },
-    { id: 'daily-habits', name: 'Daily Habits', icon: Sun, color: 'text-yellow-600' },
+    { id: 'all', name: t('tips.all', 'All Tips'), icon: BookOpen, color: 'text-slate-600' },
+    { id: 'nutrition', name: t('tips.nutrition', 'Nutrition'), icon: Apple, color: 'text-green-600' },
+    { id: 'exercise', name: t('tips.exercise', 'Exercise'), icon: Dumbbell, color: 'text-blue-600' },
+    { id: 'hydration', name: t('tips.hydration', 'Hydration'), icon: Droplets, color: 'text-cyan-600' },
+    { id: 'sleep', name: t('tips.sleep', 'Sleep'), icon: Moon, color: 'text-purple-600' },
+    { id: 'mental-health', name: t('tips.mental.health', 'Mental Health'), icon: Heart, color: 'text-pink-600' },
+    { id: 'prevention', name: t('tips.prevention', 'Prevention'), icon: Shield, color: 'text-orange-600' },
+    { id: 'daily-habits', name: t('tips.daily.habits', 'Daily Habits'), icon: Sun, color: 'text-yellow-600' },
   ];
 
   const sampleTips = [
@@ -259,7 +259,7 @@ function HealthTipsPage() {
             <div className="medical-card p-4 sticky top-6">
               <h3 className="font-semibold text-slate-900 mb-4 flex items-center gap-2">
                 <Filter className="w-4 h-4" />
-                Categories
+                {t('tips.categories', 'Categories')}
               </h3>
               <div className="space-y-2">
                 {categories.map((category) => {

@@ -5,9 +5,12 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.jsx';
 import './index.css';
 
-// Import your page components (we will create these next)
+// Import your page components
 import ChatPage from './pages/ChatPage.jsx';
 import DashboardPage from './pages/DashboardPage.jsx';
+import SymptomCheckerPage from './pages/SymptomCheckerPage.jsx';
+import HealthTipsPage from './pages/HealthTipsPage.jsx';
+import RewardsPage from './pages/RewardsPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +24,18 @@ const router = createBrowserRouter([
       {
         path: 'dashboard',
         element: <DashboardPage />,
+      },
+      {
+        path: 'symptoms',
+        element: <SymptomCheckerPage />,
+      },
+      {
+        path: 'health-tips',
+        element: <HealthTipsPage />,
+      },
+      {
+        path: 'rewards',
+        element: <RewardsPage />,
       },
     ],
   },

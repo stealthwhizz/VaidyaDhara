@@ -1,23 +1,38 @@
 // src/components/Sidebar.jsx
 import { NavLink } from 'react-router-dom';
-import { MessageSquare, LayoutDashboard, Bot } from 'lucide-react';
+import { MessageSquare, LayoutDashboard, Heart, Activity, Shield, Award } from 'lucide-react';
+import { useLocalizationStore } from '../store';
+import { translations } from '../translations';
 
 function Sidebar() {
+  const { currentLanguage } = useLocalizationStore();
+
+  // Translation function
+  const t = (key, fallback = key) => {
+    const translation = translations[currentLanguage]?.[key];
+    return translation || fallback;
+  };
+
   const navLinkClasses = ({ isActive }) =>
-    `flex items-center gap-4 px-4 py-3 rounded-lg transition-colors duration-200 ${
+    `flex items-center gap-4 px-4 py-3 rounded-lg transition-all duration-200 ${
       isActive
-        ? 'bg-cyan-500 text-white shadow-lg'
-        : 'text-gray-400 hover:bg-gray-700 hover:text-white'
+        ? 'sidebar-nav-active'
+        : 'sidebar-nav-inactive'
     }`;
 
   return (
-    <div className="flex flex-col w-64 bg-gray-800 p-4 space-y-4">
+    <div className="flex flex-col w-72 bg-white/90 backdrop-blur-sm border-r border-slate-200 p-6 space-y-6">
       {/* Header */}
-      <div className="flex items-center gap-3 p-2 mb-4">
-        <Bot className="w-10 h-10 text-cyan-400" />
+      <div className="flex items-center gap-3 p-3 mb-4">
+        <div className="relative">
+          <Heart className="w-10 h-10 text-blue-500" />
+          <Activity className="w-4 h-4 text-teal-500 absolute -bottom-1 -right-1" />
+        </div>
         <div>
-          <h1 className="text-xl font-bold text-white">Vaidya Dhara</h1>
-          <p className="text-xs text-cyan-300">v1.0 Complex UI</p>
+          <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent">
+            Vaidya Dhara
+          </h1>
+          <p className="text-sm text-slate-500 font-medium">Your AI Health Companion</p>
         </div>
       </div>
 
@@ -25,18 +40,42 @@ function Sidebar() {
       <nav className="flex flex-col space-y-2">
         <NavLink to="/" className={navLinkClasses}>
           <MessageSquare className="w-5 h-5" />
-          <span>Chat</span>
+          <span className="font-medium">{t('nav.chat')}</span>
         </NavLink>
         <NavLink to="/dashboard" className={navLinkClasses}>
           <LayoutDashboard className="w-5 h-5" />
-          <span>Dashboard</span>
+          <span className="font-medium">{t('nav.dashboard')}</span>
+        </NavLink>
+        <NavLink to="/symptoms" className={navLinkClasses}>
+          <Activity className="w-5 h-5" />
+          <span className="font-medium">{t('nav.symptoms')}</span>
+        </NavLink>
+        <NavLink to="/health-tips" className={navLinkClasses}>
+          <Shield className="w-5 h-5" />
+          <span className="font-medium">{t('nav.tips')}</span>
+        </NavLink>
+        <NavLink to="/rewards" className={navLinkClasses}>
+          <Award className="w-5 h-5" />
+          <span className="font-medium">{t('nav.rewards')}</span>
         </NavLink>
       </nav>
 
-      {/* Footer Info (Optional) */}
-      <div className="mt-auto p-2 text-center text-xs text-gray-500">
-        <p>Smart India Hackathon</p>
-        <p>&copy; 2025</p>
+      {/* Health Disclaimer */}
+      <div className="medical-card p-4 mt-auto">
+        <div className="flex items-center gap-2 mb-2">
+          <Shield className="w-4 h-4 text-blue-500" />
+          <h3 className="font-semibold text-sm text-slate-700">Medical Disclaimer</h3>
+        </div>
+        <p className="text-xs text-slate-600 leading-relaxed">
+          This AI assistant provides general health information only. Always consult with qualified healthcare professionals for medical advice.
+        </p>
+      </div>
+
+      {/* Footer Info */}
+      <div className="text-center text-xs text-slate-400 space-y-1">
+        <p className="font-medium">Smart India Hackathon 2025</p>
+        <p>SIH Problem Statement: SIH25049</p>
+        <p>&copy; 2025 Vaidya Dhara Team</p>
       </div>
     </div>
   );

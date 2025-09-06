@@ -1,8 +1,10 @@
 {
-  "name": "frontend",
+  "name": "vaidya-dhara-frontend",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "AI-Driven Public Health Chatbot Frontend - Your healthcare companion for disease awareness and wellness guidance",
+  "keywords": ["healthcare", "AI", "chatbot", "public-health", "wellness", "symptom-checker"],
   "scripts": {
     "dev": "vite",
     "build": "vite build",

@@ -5,7 +5,8 @@ import {
   Thermometer, Heart, Brain, Eye, Ear, Users
 } from 'lucide-react';
 import { symptomAPI } from '../api';
-import { useHealthStore, useUserStore } from '../store';
+import { useHealthStore, useUserStore, useLocalizationStore } from '../store';
+import { translations } from '../translations';
 
 function SymptomCheckerPage() {
   const [selectedSymptoms, setSelectedSymptoms] = useState([]);
@@ -13,6 +14,12 @@ function SymptomCheckerPage() {
   const [duration, setDuration] = useState('');
   const [intensity, setIntensity] = useState('');
   const [location, setLocation] = useState('');
+  
+  // Translation function
+  const { currentLanguage } = useLocalizationStore();
+  const t = (key, fallback = key) => {
+    return translations[currentLanguage]?.[key] || fallback;
+  };
   const [results, setResults] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -126,14 +133,14 @@ function SymptomCheckerPage() {
       <div className="bg-white/80 backdrop-blur-sm border-b border-slate-200 p-6">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-slate-900">AI Symptom Checker</h1>
+            <h1 className="text-2xl font-bold text-slate-900">{t('symptom.checker', 'AI Symptom Checker')}</h1>
             <p className="text-slate-600 mt-1">
-              Describe your symptoms to get preliminary health guidance
+              {t('symptom.description', 'Describe your symptoms to get preliminary health guidance')}
             </p>
           </div>
           <div className="flex items-center gap-2 text-sm text-slate-600">
             <AlertTriangle className="w-4 h-4 text-orange-500" />
-            <span>For informational purposes only</span>
+            <span>{t('symptom.disclaimer', 'For informational purposes only')}</span>
           </div>
         </div>
       </div>
@@ -145,7 +152,7 @@ function SymptomCheckerPage() {
             {/* Common Symptoms */}
             <div className="medical-card p-6">
               <h2 className="text-lg font-semibold text-slate-900 mb-4">
-                Select Your Symptoms
+                {t('symptom.select', 'Select Your Symptoms')}
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                 {commonSymptoms.map((symptom) => {
@@ -176,14 +183,14 @@ function SymptomCheckerPage() {
             {/* Custom Symptom Input */}
             <div className="medical-card p-6">
               <h3 className="text-lg font-semibold text-slate-900 mb-4">
-                Add Custom Symptom
+                {t('symptom.add.custom', 'Add Custom Symptom')}
               </h3>
               <div className="flex gap-3">
                 <input
                   type="text"
                   value={customSymptom}
                   onChange={(e) => setCustomSymptom(e.target.value)}
-                  placeholder="Describe any other symptoms..."
+                  placeholder={t('symptom.custom.placeholder', 'Describe any other symptoms...')}
                   className="flex-1 px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
                 <button
@@ -199,13 +206,13 @@ function SymptomCheckerPage() {
             {/* Additional Details */}
             <div className="medical-card p-6">
               <h3 className="text-lg font-semibold text-slate-900 mb-4">
-                Additional Information
+                {t('symptom.additional.info', 'Additional Information')}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-2">
                     <Clock className="w-4 h-4 inline mr-1" />
-                    Duration
+                    {t('symptom.duration', 'Duration')}
                   </label>
                   <select
                     value={duration}
@@ -224,24 +231,24 @@ function SymptomCheckerPage() {
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-2">
                     <Activity className="w-4 h-4 inline mr-1" />
-                    Intensity
+                    {t('symptom.intensity', 'Intensity')}
                   </label>
                   <select
                     value={intensity}
                     onChange={(e) => setIntensity(e.target.value)}
                     className="w-full px-3 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   >
-                    <option value="">Select intensity</option>
-                    <option value="mild">Mild</option>
-                    <option value="moderate">Moderate</option>
-                    <option value="severe">Severe</option>
+                    <option value="">{t('symptom.select.intensity', 'Select intensity')}</option>
+                    <option value="mild">{t('symptom.mild', 'Mild')}</option>
+                    <option value="moderate">{t('symptom.moderate', 'Moderate')}</option>
+                    <option value="severe">{t('symptom.severe', 'Severe')}</option>
                   </select>
                 </div>
                 
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-2">
                     <MapPin className="w-4 h-4 inline mr-1" />
-                    Location
+                    {t('symptom.location', 'Location')}
                   </label>
                   <input
                     type="text"
@@ -260,11 +267,11 @@ function SymptomCheckerPage() {
             {/* Selected Symptoms */}
             <div className="medical-card p-6">
               <h3 className="text-lg font-semibold text-slate-900 mb-4">
-                Selected Symptoms ({selectedSymptoms.length})
+                {t('symptom.selected', 'Selected Symptoms')} ({selectedSymptoms.length})
               </h3>
               {selectedSymptoms.length === 0 ? (
                 <p className="text-slate-500 text-center py-4">
-                  No symptoms selected yet
+                  {t('symptom.none.selected', 'No symptoms selected yet')}
                 </p>
               ) : (
                 <div className="space-y-2">
@@ -346,23 +353,23 @@ function SymptomCheckerPage() {
             {/* Emergency Contacts */}
             <div className="medical-card p-6 bg-red-50 border-red-200">
               <h3 className="text-lg font-semibold text-red-900 mb-3">
-                Emergency Contacts
+                {t('emergency.contacts', 'Emergency Contacts')}
               </h3>
               <div className="space-y-2">
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-red-700">Emergency Services</span>
+                  <span className="text-red-700">{t('emergency.services', 'Emergency Services')}</span>
                   <a href="tel:112" className="font-mono font-bold text-red-800 hover:underline">
                     112
                   </a>
                 </div>
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-red-700">Ambulance</span>
+                  <span className="text-red-700">{t('ambulance', 'Ambulance')}</span>
                   <a href="tel:108" className="font-mono font-bold text-red-800 hover:underline">
                     108
                   </a>
                 </div>
                 <p className="text-xs text-red-600 mt-3">
-                  For immediate medical emergencies, call these numbers or visit the nearest hospital.
+                  {t('emergency.disclaimer', 'For immediate medical emergencies, call these numbers or visit the nearest hospital.')}
                 </p>
               </div>
             </div>

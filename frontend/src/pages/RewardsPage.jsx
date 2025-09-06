@@ -5,12 +5,19 @@ import {
   Calendar, Heart, MessageSquare, Activity, BookOpen,
   Crown, Zap, Shield, Users
 } from 'lucide-react';
-import { useUserStore, useChatStore, useHealthStore } from '../store';
+import { useUserStore, useChatStore, useHealthStore, useLocalizationStore } from '../store';
+import { translations } from '../translations';
 
 function RewardsPage() {
   const { profile, addPoints, unlockBadge, getLevel, getPointsToNextLevel } = useUserStore();
   const { messages } = useChatStore();
   const { symptoms, healthTips } = useHealthStore();
+  
+  // Translation function
+  const { currentLanguage } = useLocalizationStore();
+  const t = (key, fallback = key) => {
+    return translations[currentLanguage]?.[key] || fallback;
+  };
 
   const [currentLevel, setCurrentLevel] = useState('Beginner');
   const [pointsToNext, setPointsToNext] = useState(0);
@@ -104,8 +111,8 @@ function RewardsPage() {
   const dailyTasks = [
     {
       id: 1,
-      title: "Ask a Health Question",
-      description: "Have a conversation with the AI assistant",
+      title: t('rewards.ask.question', "Ask a Health Question"),
+      description: t('rewards.ask.question.desc', "Have a conversation with the AI assistant"),
       icon: MessageSquare,
       points: 10,
       completed: messages.length > 0,
@@ -113,8 +120,8 @@ function RewardsPage() {
     },
     {
       id: 2,
-      title: "Read a Health Tip",
-      description: "Learn something new about wellness",
+      title: t('rewards.read.tip', "Read a Health Tip"),
+      description: t('rewards.read.tip.desc', "Learn something new about wellness"),
       icon: BookOpen,
       points: 5,
       completed: false,
@@ -122,8 +129,8 @@ function RewardsPage() {
     },
     {
       id: 3,
-      title: "Check Your Symptoms",
-      description: "Use the symptom checker tool",
+      title: t('rewards.check.symptoms', "Check Your Symptoms"),
+      description: t('rewards.check.symptoms.desc', "Use the symptom checker tool"),
       icon: Activity,
       points: 15,
       completed: symptoms.length > 0,
@@ -131,8 +138,8 @@ function RewardsPage() {
     },
     {
       id: 4,
-      title: "Share Health Knowledge",
-      description: "Share a tip with family or friends",
+      title: t('rewards.share.knowledge', "Share Health Knowledge"),
+      description: t('rewards.share.knowledge.desc', "Share a tip with family or friends"),
       icon: Users,
       points: 20,
       completed: false,
@@ -211,15 +218,15 @@ function RewardsPage() {
       <div className="bg-white/80 backdrop-blur-sm border-b border-slate-200 p-6">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-slate-900">Rewards & Achievements</h1>
+            <h1 className="text-2xl font-bold text-slate-900">{t('rewards.title', 'Rewards & Achievements')}</h1>
             <p className="text-slate-600 mt-1">
-              Earn points and unlock rewards for staying healthy and engaged
+              {t('rewards.description', 'Earn points and unlock rewards for staying healthy and engaged')}
             </p>
           </div>
           
           <div className="flex items-center gap-4">
             <div className="text-right">
-              <p className="text-sm text-slate-600">Total Points</p>
+              <p className="text-sm text-slate-600">{t('rewards.total.points', 'Total Points')}</p>
               <p className="text-2xl font-bold text-blue-600">{profile.points.toLocaleString()}</p>
             </div>
             <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-teal-500 flex items-center justify-center">
@@ -238,15 +245,15 @@ function RewardsPage() {
                 {React.createElement(getLevelIcon(currentLevel), { className: "w-8 h-8 text-white" })}
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-slate-900">{currentLevel}</h2>
-                <p className="text-slate-600">Current Level</p>
+                <h2 className="text-2xl font-bold text-slate-900">{t(`rewards.level.${currentLevel.toLowerCase()}`, currentLevel)}</h2>
+                <p className="text-slate-600">{t('rewards.level.current', 'Current Level')}</p>
               </div>
             </div>
             
             <div className="text-right">
-              <p className="text-sm text-slate-600">Points to next level</p>
+              <p className="text-sm text-slate-600">{t('rewards.points.next', 'Points to next level')}</p>
               <p className="text-lg font-semibold text-blue-600">
-                {pointsToNext > 0 ? pointsToNext : 'Max Level!'}
+                {pointsToNext > 0 ? pointsToNext : t('rewards.max.level', 'Max Level!')}
               </p>
             </div>
           </div>
@@ -254,7 +261,7 @@ function RewardsPage() {
           {pointsToNext > 0 && (
             <div>
               <div className="flex justify-between text-sm text-slate-600 mb-2">
-                <span>Progress to next level</span>
+                <span>{t('rewards.progress.next', 'Progress to next level')}</span>
                 <span>{profile.points} / {profile.points + pointsToNext}</span>
               </div>
               <div className="w-full bg-slate-200 rounded-full h-3">
@@ -273,7 +280,7 @@ function RewardsPage() {
         <div className="medical-card p-6">
           <h3 className="text-lg font-semibold text-slate-900 mb-4 flex items-center gap-2">
             <Target className="w-5 h-5 text-blue-500" />
-            Daily Tasks
+            {t('rewards.daily.tasks', 'Daily Tasks')}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {dailyTasks.map((task) => {
@@ -300,15 +307,15 @@ function RewardsPage() {
                       <p className="text-sm text-slate-600 mt-1">{task.description}</p>
                       <div className="flex items-center justify-between mt-3">
                         <span className="text-sm font-medium text-blue-600">
-                          +{task.points} points
+                          +{task.points} {t('rewards.points', 'points')}
                         </span>
                         {task.completed ? (
                           <span className="text-sm font-medium text-green-600 flex items-center gap-1">
                             <Star className="w-4 h-4 fill-current" />
-                            Completed
+                            {t('rewards.completed', 'Completed')}
                           </span>
                         ) : (
-                          <span className="text-sm text-slate-500">Pending</span>
+                          <span className="text-sm text-slate-500">{t('rewards.pending', 'Pending')}</span>
                         )}
                       </div>
                     </div>

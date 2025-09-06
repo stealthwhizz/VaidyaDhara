@@ -6,27 +6,34 @@ import {
   Award, Clock, User, TrendingUp
 } from 'lucide-react';
 import { healthTipsAPI } from '../api';
-import { useHealthStore, useUserStore } from '../store';
+import { useHealthStore, useUserStore, useLocalizationStore } from '../store';
+import { translations } from '../translations';
 
 function HealthTipsPage() {
   const [healthTips, setHealthTips] = useState([]);
   const [filteredTips, setFilteredTips] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
+  
+  // Translation function
+  const { currentLanguage } = useLocalizationStore();
+  const t = (key, fallback = key) => {
+    return translations[currentLanguage]?.[key] || fallback;
+  };
   const [loading, setLoading] = useState(true);
 
   const { addHealthTip, getFavoriteHealthTips } = useHealthStore();
   const { addPoints, unlockBadge } = useUserStore();
 
   const categories = [
-    { id: 'all', name: 'All Tips', icon: BookOpen, color: 'text-slate-600' },
-    { id: 'nutrition', name: 'Nutrition', icon: Apple, color: 'text-green-600' },
-    { id: 'exercise', name: 'Exercise', icon: Dumbbell, color: 'text-blue-600' },
-    { id: 'hydration', name: 'Hydration', icon: Droplets, color: 'text-cyan-600' },
-    { id: 'sleep', name: 'Sleep', icon: Moon, color: 'text-purple-600' },
-    { id: 'mental-health', name: 'Mental Health', icon: Heart, color: 'text-pink-600' },
-    { id: 'prevention', name: 'Prevention', icon: Shield, color: 'text-orange-600' },
-    { id: 'daily-habits', name: 'Daily Habits', icon: Sun, color: 'text-yellow-600' },
+    { id: 'all', name: t('tips.all', 'All Tips'), icon: BookOpen, color: 'text-slate-600' },
+    { id: 'nutrition', name: t('tips.nutrition', 'Nutrition'), icon: Apple, color: 'text-green-600' },
+    { id: 'exercise', name: t('tips.exercise', 'Exercise'), icon: Dumbbell, color: 'text-blue-600' },
+    { id: 'hydration', name: t('tips.hydration', 'Hydration'), icon: Droplets, color: 'text-cyan-600' },
+    { id: 'sleep', name: t('tips.sleep', 'Sleep'), icon: Moon, color: 'text-purple-600' },
+    { id: 'mental-health', name: t('tips.mental.health', 'Mental Health'), icon: Heart, color: 'text-pink-600' },
+    { id: 'prevention', name: t('tips.prevention', 'Prevention'), icon: Shield, color: 'text-orange-600' },
+    { id: 'daily-habits', name: t('tips.daily.habits', 'Daily Habits'), icon: Sun, color: 'text-yellow-600' },
   ];
 
   const sampleTips = [
@@ -223,9 +230,9 @@ function HealthTipsPage() {
       <div className="bg-white/80 backdrop-blur-sm border-b border-slate-200 p-6">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-bold text-slate-900">Health Tips & Wellness Guide</h1>
+            <h1 className="text-2xl font-bold text-slate-900">{t('tips.title', 'Health Tips & Wellness Guide')}</h1>
             <p className="text-slate-600 mt-1">
-              Discover evidence-based health tips to improve your daily wellness
+              {t('tips.description', 'Discover evidence-based health tips to improve your daily wellness')}
             </p>
           </div>
           
@@ -237,7 +244,7 @@ function HealthTipsPage() {
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Search tips..."
+                placeholder={t('tips.search', 'Search tips...')}
                 className="pl-10 pr-4 py-2 rounded-lg border border-slate-200 bg-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full sm:w-64"
               />
             </div>
@@ -252,7 +259,7 @@ function HealthTipsPage() {
             <div className="medical-card p-4 sticky top-6">
               <h3 className="font-semibold text-slate-900 mb-4 flex items-center gap-2">
                 <Filter className="w-4 h-4" />
-                Categories
+                {t('tips.categories', 'Categories')}
               </h3>
               <div className="space-y-2">
                 {categories.map((category) => {
@@ -375,7 +382,7 @@ function HealthTipsPage() {
                             onClick={() => handleReadTip(tip)}
                             className="medical-button-secondary text-sm px-4 py-2"
                           >
-                            Read More
+                            {t('tips.read.more', 'Read More')}
                           </button>
                         </div>
                       </div>

@@ -10,7 +10,7 @@ export const translations = {
     'nav.rewards': 'Rewards & Points',
     
     // Chat Page
-    'chat.title': 'Vaidya Dhara AI',
+    'chat.title': 'Rishi AI',
     'chat.subtitle': 'Your Personal Health Assistant',
     'chat.welcome.title': 'Welcome to Vaidya Dhara!',
     'chat.welcome.subtitle': 'I\'m your AI health companion, here to provide health information, symptom guidance, and wellness tips. How can I help you today?',
@@ -35,7 +35,45 @@ export const translations = {
     'disclaimer.text': 'This AI provides general health information only. Always consult healthcare professionals for medical advice, diagnosis, or treatment.',
     'disclaimer.short': 'This AI assistant provides general health information only. Always consult with qualified healthcare professionals for medical advice.',
     
+    // Symptom Checker
+    'symptom.checker': 'Symptom Checker',
+    'symptom.description': 'Describe your symptoms to get preliminary health guidance',
+    'symptom.disclaimer': 'For informational purposes only',
+    'symptom.select': 'Select Your Symptoms',
+    'symptom.add.custom': 'Add Custom Symptom',
+    'symptom.custom.placeholder': 'Describe any other symptoms...',
+    'symptom.duration': 'Duration',
+    'symptom.intensity': 'Intensity',
+    'symptom.location': 'Location',
+    'symptom.analyze': 'Analyze',
+    'emergency.contacts': 'Emergency Contacts',
+    'emergency.services': 'Emergency Services',
+    'ambulance': 'Ambulance',
+    'emergency.disclaimer': 'For immediate medical emergencies, call these numbers or visit the nearest hospital.',
+
+    // Dashboard
+    'dashboard.title': 'Analytics Dashboard',
+    'dashboard.overview': 'Overview',
+    'dashboard.health.metrics': 'Health Metrics',
+
+    // Health Tips
+    'tips.title': 'Health Tips & Wellness Guide',
+    'tips.description': 'Discover evidence-based health tips to improve your daily wellness',
+    'tips.daily': 'Daily Health Tips',
+
+    // Rewards
+    'rewards.title': 'Rewards & Achievements',
+    'rewards.description': 'Earn points and unlock rewards for staying healthy and engaged',
+    'rewards.total.points': 'Total Points',
+    'rewards.current': 'Current Points',
+    
     // Common
+    'app.name': 'Vaidya Dhara',
+    'app.subtitle': 'Your AI Health Companion',
+    'medical.disclaimer': 'Medical Disclaimer',
+    'footer.hackathon': 'Smart India Hackathon 2025',
+    'footer.problem': 'SIH Problem Statement: SIH25049',
+    'footer.copyright': '© 2025 Vaidya Dhara Team',
     'points': 'pts',
     'loading': 'Loading...',
     'error': 'Error occurred',
@@ -77,7 +115,81 @@ export const translations = {
     'disclaimer.text': 'यह AI केवल सामान्य स्वास्थ्य जानकारी प्रदान करता है। चिकित्सा सलाह, निदान या उपचार के लिए हमेशा स्वास्थ्य पेशेवरों से सलाह लें।',
     'disclaimer.short': 'यह AI सहायक केवल सामान्य स्वास्थ्य जानकारी प्रदान करता है। चिकित्सा सलाह के लिए हमेशा योग्य स्वास्थ्य पेशेवरों से सलाह लें।',
     
+    // Symptom Checker
+    'symptom.checker': 'लक्षण परीक्षक',
+    'symptom.description': 'प्रारंभिक स्वास्थ्य मार्गदर्शन प्राप्त करने के लिए अपने लक्षणों का वर्णन करें',
+    'symptom.disclaimer': 'केवल जानकारी के उद्देश्यों के लिए',
+    'symptom.select': 'अपने लक्षण चुनें',
+    'symptom.add.custom': 'कस्टम लक्षण जोड़ें',
+    'symptom.custom.placeholder': 'कोई अन्य लक्षण वर्णित करें...',
+    'symptom.selected': 'चयनित लक्षण',
+    'symptom.none.selected': 'अभी तक कोई लक्षण नहीं चुना गया',
+    'symptom.additional.info': 'अतिरिक्त जानकारी',
+    'symptom.additional.info': 'अतिरिक्त जानकारी',
+    'symptom.select.intensity': 'तीव्रता चुनें',
+    'symptom.mild': 'हल्का',
+    'symptom.moderate': 'मध्यम',
+    'symptom.severe': 'गंभीर',
+    'symptom.duration': 'अवधि',
+    'symptom.intensity': 'तीव्रता',
+    'symptom.location': 'स्थान',
+    'symptom.analyze': 'विश्लेषण करें',
+    'emergency.contacts': 'आपातकालीन संपर्क',
+    'emergency.services': 'आपातकालीन सेवाएं',
+    'ambulance': 'एम्बुलेंस',
+    'emergency.disclaimer': 'तत्काल चिकित्सा आपातकाल के लिए, इन नंबरों पर कॉल करें या निकटतम अस्पताल जाएं।',
+
+    // Dashboard
+    'dashboard.title': 'एनालिटिक्स डैशबोर्ड',
+    'dashboard.overview': 'अवलोकन',
+    'dashboard.health.metrics': 'स्वास्थ्य मेट्रिक्स',
+
+    // Health Tips
+    'tips.title': 'स्वास्थ्य सुझाव और कल्याण गाइड',
+    'tips.description': 'अपनी दैनिक कल्याण सुधारने के लिए साक्ष्य-आधारित स्वास्थ्य सुझाव खोजें',
+    'tips.daily': 'दैनिक स्वास्थ्य सुझाव',
+    'tips.categories': 'श्रेणियां',
+    'tips.all': 'सभी सुझाव',
+    'tips.nutrition': 'पोषण',
+    'tips.exercise': 'व्यायाम',
+    'tips.hydration': 'जलयोजन',
+    'tips.sleep': 'नींद',
+    'tips.mental.health': 'मानसिक स्वास्थ्य',
+    'tips.prevention': 'रोकथाम',
+    'tips.daily.habits': 'दैनिक आदतें',
+    'tips.read.more': 'और पढ़ें',
+    'tips.search': 'सुझाव खोजें...',
+
+    // Rewards
+    'rewards.title': 'पुरस्कार और उपलब्धियां',
+    'rewards.description': 'स्वस्थ रहने और सक्रिय रहने के लिए अंक अर्जित करें और पुरस्कार अनलॉक करें',
+    'rewards.total.points': 'कुल अंक',
+    'rewards.current': 'वर्तमान अंक',
+    'rewards.level.beginner': 'शुरुआती',
+    'rewards.level.current': 'वर्तमान स्तर',
+    'rewards.progress.next': 'अगले स्तर तक प्रगति',
+    'rewards.points.next': 'अगले स्तर तक अंक',
+    'rewards.daily.tasks': 'दैनिक कार्य',
+    'rewards.ask.question': 'स्वास्थ्य प्रश्न पूछें',
+    'rewards.ask.question.desc': 'AI सहायक के साथ बातचीत करें',
+    'rewards.read.tip': 'स्वास्थ्य सुझाव पढ़ें',
+    'rewards.read.tip.desc': 'कल्याण के बारे में कुछ नया सीखें',
+    'rewards.check.symptoms': 'अपने लक्षणों की जांच करें',
+    'rewards.check.symptoms.desc': 'लक्षण चेकर टूल का उपयोग करें',
+    'rewards.share.knowledge': 'स्वास्थ्य ज्ञान साझा करें',
+    'rewards.share.knowledge.desc': 'परिवार या दोस्तों के साथ सुझाव साझा करें',
+    'rewards.pending': 'लंबित',
+    'rewards.completed': 'पूर्ण',
+    'rewards.points': 'अंक',
+    'rewards.max.level': 'अधिकतम स्तर!',
+    
     // Common
+    'app.name': 'वैद्य धारा',
+    'app.subtitle': 'आपका AI स्वास्थ्य साथी',
+    'medical.disclaimer': 'चिकित्सा अस्वीकरण',
+    'footer.hackathon': 'स्मार्ट इंडिया हैकथॉन 2025',
+    'footer.problem': 'SIH समस्या कथन: SIH25049',
+    'footer.copyright': '© 2025 वैद्य धारा टीम',
     'points': 'अंक',
     'loading': 'लोड हो रहा है...',
     'error': 'त्रुटि हुई',
@@ -231,7 +343,45 @@ export const translations = {
     'disclaimer.text': 'ಈ AI ಕೇವಲ ಸಾಮಾನ್ಯ ಆರೋಗ್ಯ ಮಾಹಿತಿಯನ್ನು ಒದಗಿಸುತ್ತದೆ. ವೈದ್ಯಕೀಯ ಸಲಹೆ, ರೋಗನಿರ್ಣಯ ಅಥವಾ ಚಿಕಿತ್ಸೆಗಾಗಿ ಯಾವಾಗಲೂ ಆರೋಗ್ಯ ವೃತ್ತಿಪರರನ್ನು ಸಂಪರ್ಕಿಸಿ.',
     'disclaimer.short': 'ಈ AI ಸಹಾಯಕ ಕೇವಲ ಸಾಮಾನ್ಯ ಆರೋಗ್ಯ ಮಾಹಿತಿಯನ್ನು ಒದಗಿಸುತ್ತದೆ. ವೈದ್ಯಕೀಯ ಸಲಹೆಗಾಗಿ ಯಾವಾಗಲೂ ಅರ್ಹ ಆರೋಗ್ಯ ವೃತ್ತಿಪರರನ್ನು ಸಂಪರ್ಕಿಸಿ.',
     
+    // Symptom Checker
+    'symptom.checker': 'ಲಕ್ಷಣ ಪರೀಕ್ಷಕ',
+    'symptom.description': 'ಪ್ರಾಥಮಿಕ ಆರೋಗ್ಯ ಮಾರ್ಗದರ್ಶನವನ್ನು ಪಡೆಯಲು ನಿಮ್ಮ ಲಕ್ಷಣಗಳನ್ನು ವಿವರಿಸಿ',
+    'symptom.disclaimer': 'ಕೇವಲ ಮಾಹಿತಿ ಉದ್ದೇಶಗಳಿಗಾಗಿ',
+    'symptom.select': 'ನಿಮ್ಮ ಲಕ್ಷಣಗಳನ್ನು ಆಯ್ಕೆ ಮಾಡಿ',
+    'symptom.add.custom': 'ಕಸ್ಟಮ್ ಲಕ್ಷಣ ಸೇರಿಸಿ',
+    'symptom.custom.placeholder': 'ಯಾವುದೇ ಇತರ ಲಕ್ಷಣಗಳನ್ನು ವಿವರಿಸಿ...',
+    'symptom.duration': 'ಅವಧಿ',
+    'symptom.intensity': 'ತೀವ್ರತೆ',
+    'symptom.location': 'ಸ್ಥಳ',
+    'symptom.analyze': 'ವಿಶ್ಲೇಷಿಸಿ',
+    'emergency.contacts': 'ತುರ್ತು ಸಂಪರ್ಕಗಳು',
+    'emergency.services': 'ತುರ್ತು ಸೇವೆಗಳು',
+    'ambulance': 'ಆಂಬುಲೆನ್ಸ್',
+    'emergency.disclaimer': 'ತಕ್ಷಣದ ವೈದ್ಯಕೀಯ ತುರ್ತುಸ್ಥಿತಿಗಳಿಗಾಗಿ, ಈ ಸಂಖ್ಯೆಗಳಿಗೆ ಕರೆ ಮಾಡಿ ಅಥವಾ ಹತ್ತಿರದ ಆಸ್ಪತ್ರೆಗೆ ಭೇಟಿ ನೀಡಿ.',
+
+    // Dashboard
+    'dashboard.title': 'ಅನ್ಯಾಲಿಟಿಕ್ಸ್ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್',
+    'dashboard.overview': 'ಅವಲೋಕನ',
+    'dashboard.health.metrics': 'ಆರೋಗ್ಯ ಮಾಪದಂಡಗಳು',
+
+    // Health Tips
+    'tips.title': 'ಆರೋಗ್ಯ ಸುಝಾವುಗಳು ಮತ್ತು ಕಲ್ಯಾಣ ಮಾರ್ಗದರ್ಶಿ',
+    'tips.description': 'ನಿಮ್ಮ ದೈನಂದಿನ ಕಲ್ಯಾಣವನ್ನು ಸುಧಾರಿಸಲು ಸಾಕ್ಷ್ಯ-ಆಧಾರಿತ ಆರೋಗ್ಯ ಸುಝಾವುಗಳನ್ನು ಅನ್ವೇಷಿಸಿ',
+    'tips.daily': 'ದೈನಂದಿನ ಆರೋಗ್ಯ ಸುಝಾವುಗಳು',
+
+    // Rewards
+    'rewards.title': 'ಪ್ರಶಸ್ತಿಗಳು ಮತ್ತು ಸಾಧನೆಗಳು',
+    'rewards.description': 'ಆರೋಗ್ಯವಾಗಿ ಮತ್ತು ತೊಡಗಿಸಿಕೊಂಡಿರಲು ಅಂಕಗಳನ್ನು ಗಳಿಸಿ ಮತ್ತು ಪ್ರಶಸ್ತಿಗಳನ್ನು ಅನ್ಲಾಕ್ ಮಾಡಿ',
+    'rewards.total.points': 'ಒಟ್ಟು ಅಂಕಗಳು',
+    'rewards.current': 'ಪ್ರಸ್ತುತ ಅಂಕಗಳು',
+
     // Common
+    'app.name': 'ವೈದ್ಯ ಧಾರಾ',
+    'app.subtitle': 'ನಿಮ್ಮ AI ಆರೋಗ್ಯ ಸಂಗಾತಿ',
+    'medical.disclaimer': 'ವೈದ್ಯಕೀಯ ಅಬಾಧ್ಯತೆ',
+    'footer.hackathon': 'ಸ್ಮಾರ್ಟ್ ಇಂಡಿಯಾ ಹ್ಯಾಕಥಾನ್ 2025',
+    'footer.problem': 'SIH ಸಮಸ್ಯೆ ಹೇಳಿಕೆ: SIH25049',
+    'footer.copyright': '© 2025 ವೈದ್ಯ ಧಾರಾ ತಂಡ',
     'points': 'ಅಂಕಗಳು',
     'loading': 'ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
     'error': 'ದೋಷ ಸಂಭವಿಸಿದೆ',

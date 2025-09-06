@@ -6,13 +6,20 @@ import {
   Award, Clock, User, TrendingUp
 } from 'lucide-react';
 import { healthTipsAPI } from '../api';
-import { useHealthStore, useUserStore } from '../store';
+import { useHealthStore, useUserStore, useLocalizationStore } from '../store';
+import { translations } from '../translations';
 
 function HealthTipsPage() {
   const [healthTips, setHealthTips] = useState([]);
   const [filteredTips, setFilteredTips] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
+  
+  // Translation function
+  const { currentLanguage } = useLocalizationStore();
+  const t = (key, fallback = key) => {
+    return translations[currentLanguage]?.[key] || fallback;
+  };
   const [loading, setLoading] = useState(true);
 
   const { addHealthTip, getFavoriteHealthTips } = useHealthStore();
@@ -223,9 +230,9 @@ function HealthTipsPage() {
       <div className="bg-white/80 backdrop-blur-sm border-b border-slate-200 p-6">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-bold text-slate-900">Health Tips & Wellness Guide</h1>
+            <h1 className="text-2xl font-bold text-slate-900">{t('tips.title', 'Health Tips & Wellness Guide')}</h1>
             <p className="text-slate-600 mt-1">
-              Discover evidence-based health tips to improve your daily wellness
+              {t('tips.description', 'Discover evidence-based health tips to improve your daily wellness')}
             </p>
           </div>
           

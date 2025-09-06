@@ -30,9 +30,9 @@ function Sidebar() {
         </div>
         <div>
           <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent">
-            Vaidya Dhara
+            {t('app.name', 'Vaidya Dhara')}
           </h1>
-          <p className="text-sm text-slate-500 font-medium">Your AI Health Companion</p>
+          <p className="text-sm text-slate-500 font-medium">{t('app.subtitle', 'Your AI Health Companion')}</p>
         </div>
       </div>
 
@@ -64,18 +64,18 @@ function Sidebar() {
       <div className="medical-card p-4 mt-auto">
         <div className="flex items-center gap-2 mb-2">
           <Shield className="w-4 h-4 text-blue-500" />
-          <h3 className="font-semibold text-sm text-slate-700">Medical Disclaimer</h3>
+          <h3 className="font-semibold text-sm text-slate-700">{t('medical.disclaimer', 'Medical Disclaimer')}</h3>
         </div>
         <p className="text-xs text-slate-600 leading-relaxed">
-          This AI assistant provides general health information only. Always consult with qualified healthcare professionals for medical advice.
+          {t('disclaimer.short', 'This AI assistant provides general health information only. Always consult with qualified healthcare professionals for medical advice.')}
         </p>
       </div>
 
       {/* Footer Info */}
       <div className="text-center text-xs text-slate-400 space-y-1">
-        <p className="font-medium">Smart India Hackathon 2025</p>
-        <p>SIH Problem Statement: SIH25049</p>
-        <p>&copy; 2025 Vaidya Dhara Team</p>
+        <p className="font-medium">{t('footer.hackathon', 'Smart India Hackathon 2025')}</p>
+        <p>{t('footer.problem', 'SIH Problem Statement: SIH25049')}</p>
+        <p>{t('footer.copyright', '© 2025 Vaidya Dhara Team')}</p>
       </div>
     </div>
   );

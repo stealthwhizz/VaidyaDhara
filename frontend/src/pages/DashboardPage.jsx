@@ -9,7 +9,8 @@ import {
   Shield, AlertCircle, Calendar, MapPin, Clock
 } from 'lucide-react';
 import { analyticsAPI } from '../api';
-import { useHealthStore } from '../store';
+import { useHealthStore, useLocalizationStore } from '../store';
+import { translations } from '../translations';
 
 function DashboardPage() {
   const [analytics, setAnalytics] = useState(null);
@@ -17,6 +18,12 @@ function DashboardPage() {
   const [loading, setLoading] = useState(true);
 
   const { setAnalytics: setStoreAnalytics } = useHealthStore();
+  
+  // Translation function
+  const { currentLanguage } = useLocalizationStore();
+  const t = (key, fallback = key) => {
+    return translations[currentLanguage]?.[key] || fallback;
+  };
 
   useEffect(() => {
     const fetchAnalytics = async () => {

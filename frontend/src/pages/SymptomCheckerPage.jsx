@@ -206,13 +206,13 @@ function SymptomCheckerPage() {
             {/* Additional Details */}
             <div className="medical-card p-6">
               <h3 className="text-lg font-semibold text-slate-900 mb-4">
-                Additional Information
+                {t('symptom.additional.info', 'Additional Information')}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-2">
                     <Clock className="w-4 h-4 inline mr-1" />
-                    Duration
+                    {t('symptom.duration', 'Duration')}
                   </label>
                   <select
                     value={duration}
@@ -231,24 +231,24 @@ function SymptomCheckerPage() {
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-2">
                     <Activity className="w-4 h-4 inline mr-1" />
-                    Intensity
+                    {t('symptom.intensity', 'Intensity')}
                   </label>
                   <select
                     value={intensity}
                     onChange={(e) => setIntensity(e.target.value)}
                     className="w-full px-3 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   >
-                    <option value="">Select intensity</option>
-                    <option value="mild">Mild</option>
-                    <option value="moderate">Moderate</option>
-                    <option value="severe">Severe</option>
+                    <option value="">{t('symptom.select.intensity', 'Select intensity')}</option>
+                    <option value="mild">{t('symptom.mild', 'Mild')}</option>
+                    <option value="moderate">{t('symptom.moderate', 'Moderate')}</option>
+                    <option value="severe">{t('symptom.severe', 'Severe')}</option>
                   </select>
                 </div>
                 
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-2">
                     <MapPin className="w-4 h-4 inline mr-1" />
-                    Location
+                    {t('symptom.location', 'Location')}
                   </label>
                   <input
                     type="text"
@@ -267,11 +267,11 @@ function SymptomCheckerPage() {
             {/* Selected Symptoms */}
             <div className="medical-card p-6">
               <h3 className="text-lg font-semibold text-slate-900 mb-4">
-                Selected Symptoms ({selectedSymptoms.length})
+                {t('symptom.selected', 'Selected Symptoms')} ({selectedSymptoms.length})
               </h3>
               {selectedSymptoms.length === 0 ? (
                 <p className="text-slate-500 text-center py-4">
-                  No symptoms selected yet
+                  {t('symptom.none.selected', 'No symptoms selected yet')}
                 </p>
               ) : (
                 <div className="space-y-2">

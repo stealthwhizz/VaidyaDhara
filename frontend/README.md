@@ -1,6 +1,6 @@
 # Vaidya Dhara Frontend
 
-A modern, responsive React frontend for the Vaidya Dhara AI-driven public health chatbot system.
+A modern, responsive React frontend for team Vaidya Dhara-driven public health chatbot system.
 
 ## 🚀 Features
 
@@ -310,4 +310,4 @@ For technical support or questions:
 
 ---
 
-**Vaidya Dhara** - Your AI-Driven Public Health Companion 🏥💙
+**Rishi** - Your AI-Driven Public Health Companion 🏥💙

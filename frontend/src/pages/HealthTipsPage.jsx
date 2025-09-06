@@ -244,7 +244,7 @@ function HealthTipsPage() {
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Search tips..."
+                placeholder={t('tips.search', 'Search tips...')}
                 className="pl-10 pr-4 py-2 rounded-lg border border-slate-200 bg-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full sm:w-64"
               />
             </div>
@@ -382,7 +382,7 @@ function HealthTipsPage() {
                             onClick={() => handleReadTip(tip)}
                             className="medical-button-secondary text-sm px-4 py-2"
                           >
-                            Read More
+                            {t('tips.read.more', 'Read More')}
                           </button>
                         </div>
                       </div>

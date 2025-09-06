@@ -10,7 +10,7 @@ export const translations = {
     'nav.rewards': 'Rewards & Points',
     
     // Chat Page
-    'chat.title': 'Vaidya Dhara AI',
+    'chat.title': 'Rishi AI',
     'chat.subtitle': 'Your Personal Health Assistant',
     'chat.welcome.title': 'Welcome to Vaidya Dhara!',
     'chat.welcome.subtitle': 'I\'m your AI health companion, here to provide health information, symptom guidance, and wellness tips. How can I help you today?',
@@ -125,6 +125,11 @@ export const translations = {
     'symptom.selected': 'चयनित लक्षण',
     'symptom.none.selected': 'अभी तक कोई लक्षण नहीं चुना गया',
     'symptom.additional.info': 'अतिरिक्त जानकारी',
+    'symptom.additional.info': 'अतिरिक्त जानकारी',
+    'symptom.select.intensity': 'तीव्रता चुनें',
+    'symptom.mild': 'हल्का',
+    'symptom.moderate': 'मध्यम',
+    'symptom.severe': 'गंभीर',
     'symptom.duration': 'अवधि',
     'symptom.intensity': 'तीव्रता',
     'symptom.location': 'स्थान',

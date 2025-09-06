@@ -1,4 +1,4 @@
-# Vaidya Dhara: Your AI-Driven Public Health Companion  
+# Vaidya Dhara: Your AI-Driven Public Health Companion Chatbot 
 
 ![Built With](https://img.shields.io/badge/Built%20With-AI%20%7C%20RASA%20%7C%20LangChain%20%7C%20LLM%20APIs-blue)  
 ![License](https://img.shields.io/badge/License-MIT-green)  

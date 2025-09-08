@@ -1,9 +1,18 @@
 # backend/app/database.py
 import sqlite3
 import os
+from dotenv import load_dotenv
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATABASE_NAME = os.path.join(BASE_DIR, "vaidya_dhara.db")
+load_dotenv()
+
+# Get the project root directory (2 levels up from this file)
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+# Database path in the root database folder
+DATABASE_NAME = os.path.join(PROJECT_ROOT, 'database', 'vaidya_dhara.db')
+
+# Ensure database directory exists
+os.makedirs(os.path.join(PROJECT_ROOT, 'database'), exist_ok=True)
 
 def init_db():
     """Initializes the database and creates tables if they don't exist."""
